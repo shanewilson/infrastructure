@@ -20,3 +20,9 @@
   action: apt pkg=nodejs state=latest install_recommends=yes
   tags:
     - nodejs
+
+- name: "Install global NodeJS modules"
+  action: npm name=${item} state=latest global=true
+  with_items: ${node.modules}
+  tags:
+    - nodejs

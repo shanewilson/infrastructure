@@ -2,6 +2,9 @@
 
 node:
   ppa: "ppa:chris-lea/node.js"
+  modules:
+    - coffee-script
+    - plato
   dependencies:
     - python-software-properties
     - python
