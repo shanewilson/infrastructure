@@ -1,0 +1,22 @@
+---
+
+- name: "Ensure required packages are installed for NodeJS"
+  apt: name=$item state=latest update_cache=yes
+  with_items: ${node.dependencies}
+  tags:
+    - nodejs
+
+- name: "Add NodeJS repository to sources"
+  action: apt_repository repo=${node.ppa}
+  tags:
+    - nodejs
+
+- name: "Update APT package cache"
+  action: apt update_cache=yes
+  tags:
+    - nodejs
+
+- name: "Install NodeJS"
+  action: apt pkg=nodejs state=latest install_recommends=yes
+  tags:
+    - nodejs

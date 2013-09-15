@@ -4,13 +4,11 @@ elasticsearch:
   url: 'http://download.elasticsearch.org/elasticsearch/elasticsearch'
   debian_package: 'elasticsearch-0.90.3.deb'
   service: 'elasticsearch'
-  dependencies:
-    - 'openjdk-7-jre-headless'
+  config: '/etc/elasticsearch/elasticsearch.yml'
   plugin: '/usr/share/elasticsearch/bin/plugin'
   plugins:
     - 'mobz/elasticsearch-head'
     - 'karmi/elasticsearch-paramedic'
     - 'lukas-vlcek/bigdesk'
-  config: '/etc/elasticsearch/elasticsearch.yml'
 
 tmp_dir: '/tmp'

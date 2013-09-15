@@ -1,0 +1,7 @@
+---
+
+python:
+  version: 2.7
+  modules:
+    - virtualenv
+    - httpie

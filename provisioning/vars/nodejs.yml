@@ -1,0 +1,9 @@
+---
+
+node:
+  ppa: "ppa:chris-lea/node.js"
+  dependencies:
+    - python-software-properties
+    - python
+    - g++
+    - make

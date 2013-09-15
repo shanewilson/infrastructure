@@ -9,10 +9,15 @@
   vars_files:
     - vars/elasticsearch.yml
     - vars/mongodb.yml
+    - vars/java.yml
+    - vars/nodejs.yml
+    - vars/python.yml
 
   tasks:
     - include: tasks/apt.yml
+    - include: tasks/python.yml
     - include: tasks/mongodb.yml
+    - include: tasks/nodejs.yml
     - include: tasks/java.yml
     - include: tasks/elasticsearch.yml
 
