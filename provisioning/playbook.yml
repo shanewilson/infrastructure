@@ -1,3 +1,20 @@
 - hosts: vagrant
+  user: vagrant
+  sudo: yes
+  sudo_user: root
+
+  vars:
+    whoami: vagrant
+
+  vars_files:
+    - vars/elasticsearch.yml
+    - vars/mongodb.yml
+
   tasks:
-  - debug: msg="$var"
+    - include: tasks/apt.yml
+    - include: tasks/mongodb.yml
+    - include: tasks/java.yml
+    - include: tasks/elasticsearch.yml
+
+  handlers:
+    - include: handlers/elasticsearch.yml

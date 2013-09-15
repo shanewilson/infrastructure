@@ -1,0 +1,7 @@
+---
+
+mongodb:
+  key: '7F0CEB10'
+  key_url: 'http://docs.mongodb.org/10gen-gpg-key.asc'
+  package: 'mongodb-10gen'
+  service: 'mongodb'

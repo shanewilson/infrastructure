@@ -1,7 +1,7 @@
 VAGRANT_VERSION = "2"
 
-BOX_NAME = "precise64"
-BOX_URL = "http://files.vagrantup.com/precise64.box"
+BOX_NAME = "raring64"
+BOX_URL = "http://cloud-images.ubuntu.com/vagrant/raring/current/raring-server-cloudimg-amd64-vagrant-disk1.box"
 
 Vagrant.configure(VAGRANT_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
@@ -23,9 +23,10 @@ Vagrant.configure(VAGRANT_VERSION) do |config|
   # For information on available options for Ansible provisioning, please visit:
   # http://docs.vagrantup.com/v2/provisioning/ansible.html
   config.vm.provision :ansible do |ansible|
+    ansible.sudo = true
+    ansible.sudo_user = "root"
     ansible.playbook = "provisioning/playbook.yml"
     ansible.inventory_path = "provisioning/hosts"
-    ansible.extra_vars = { var: "foo bar" }
     ansible.verbose = true
   end
 
