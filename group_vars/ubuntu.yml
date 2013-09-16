@@ -1,0 +1,27 @@
+---
+
+# NodeJS
+node_ppa: "ppa:chris-lea/node.js"
+node_dependencies:
+  - python-software-properties
+  - python
+  - g++
+  - make
+
+# Java
+java_ppa: "ppa:webupd8team/java"
+java_dependencies:
+    - python-software-properties
+java_installer: "oracle-java7-installer"
+
+# MongoDB
+mongodb_key: '7F0CEB10'
+mongodb_key_url: 'http://docs.mongodb.org/10gen-gpg-key.asc'
+mongodb_package: 'mongodb-10gen'
+mongodb_service: 'mongodb'
+
+# Elasticsearch
+elasticsearch_url: 'http://download.elasticsearch.org/elasticsearch/elasticsearch'
+elasticsearch_debian_package: 'elasticsearch-0.90.3.deb'
+elasticsearch_config: '/etc/elasticsearch/elasticsearch.yml'
+elasticsearch_plugin: '/usr/share/elasticsearch/bin/plugin'

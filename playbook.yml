@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    - name: "Create a group of hosts by OS"
+      action: group_by key={{ansible_distribution}}
+
+- hosts: Ubuntu
+  sudo: yes
+  roles:
+    - role: ubuntu

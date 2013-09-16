@@ -1,0 +1,35 @@
+---
+
+- name: "Add 10gen key"
+  action: apt_key id=${mongodb_key} url=${mongodb_key_url} state=present
+  tags:
+    - mongodb
+
+# Adds 10gen source
+- name: "Copy mongodb_list to /etc/apt/sources.list.d/"
+  action: copy src=mongodb.list dest=/etc/apt/sources.list.d/mongodb_list
+  tags:
+    - mongodb
+
+# Makes sure it worked
+- name: "Make sure mongodb_list is present"
+  action: file path=/etc/apt/sources.list.d/mongodb_list state=file
+  tags:
+    - mongodb
+
+- name: "Update APT package cache"
+  action: apt update_cache=yes
+  tags:
+    - mongodb
+
+- name: "Install MongoDB"
+  action: apt pkg=${mongodb_package} force=yes
+  tags:
+    - mongodb
+
+# Start MongoDB service
+- name: "Ensure MongoDB is running"
+  action: service name=${mongodb_service} state=started
+  tags:
+    - mongodb
+

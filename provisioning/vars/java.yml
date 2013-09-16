@@ -1,7 +1,0 @@
----
-
-java:
-  ppa: "ppa:webupd8team/java"
-  dependencies:
-    - python-software-properties
-  installer: "oracle-java7-installer"

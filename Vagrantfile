@@ -23,10 +23,8 @@ Vagrant.configure(VAGRANT_VERSION) do |config|
   # For information on available options for Ansible provisioning, please visit:
   # http://docs.vagrantup.com/v2/provisioning/ansible.html
   config.vm.provision :ansible do |ansible|
-    ansible.sudo = true
-    ansible.sudo_user = "root"
-    ansible.playbook = "provisioning/playbook.yml"
-    ansible.inventory_path = "provisioning/hosts"
+    ansible.playbook = "playbook.yml"
+    ansible.inventory_path = "stage"
     ansible.verbose = true
   end
 

@@ -1,0 +1,22 @@
+---
+
+# Python
+python_version: 2.7
+python_modules:
+  - virtualenv
+  - httpie
+
+# NodeJS
+node_modules:
+  - coffee-script
+  - plato
+
+# Elasticsearch
+elasticsearch_service: 'elasticsearch'
+elasticsearch_plugins:
+  - 'mobz/elasticsearch-head'
+  - 'karmi/elasticsearch-paramedic'
+  - 'lukas-vlcek/bigdesk'
+
+# Temp Dir
+tmp_dir: '/tmp'

@@ -1,0 +1,44 @@
+---
+
+# Fetch Elasticsearch Debian package
+- name: "Fetch Elasticsearch"
+  get_url: url=${elasticsearch_url}/${elasticsearch_debian_package} dest=${tmp_dir} thirsty=yes mode=0440
+  register: elasticsearch_deb
+  tags:
+    - elasticsearch
+
+# Install Elasticsearch
+- name: "Install Elasticsearch package"
+  shell: "dpkg -i -E --force-confnew ${tmp_dir}/${elasticsearch_debian_package} 2>&1 | grep skipping | wc -l"
+  when_changed: ${elasticsearch_deb}
+  tags:
+    - elasticsearch
+
+# Update Elasticsearch Configuration
+- name: "Updating Elasticsearch config"
+  copy: src=elasticsearch.conf.yml dest=${elasticsearch_config}
+  notify:
+    - "Restart Elasticsearch"
+  tags:
+    - elasticsearch
+
+# Add JAVA_HOME var in init script
+- name: "Add JAVA_HOME to Elasticsearch init script"
+  lineinfile: dest=/etc/init.d/${elasticsearch_service} state=present regexp="^JAVA_HOME=/usr/lib/jvm/java-7-oracle" insertafter="^DEFAULT=/etc/default/" line="JAVA_HOME=/usr/lib/jvm/java-7-oracle"
+  notify:
+    - "Restart Elasticsearch"
+  tags:
+    - elasticsearch
+
+# Elasticsearch Plugins
+- name: "Install Elasticsearch plugins"
+  command: ${elasticsearch_plugin} -install ${item}
+  with_items: ${elasticsearch_plugins}
+  tags:
+    - elasticsearch
+
+# Ensure Elasticsearch is running
+- name: "Ensure Elasticsearch is running"
+  service: name=${elasticsearch_service} state=started
+  tags:
+    - elasticsearch
