@@ -6,14 +6,14 @@
     - mongodb
 
 # Adds 10gen source
-- name: "Copy mongodb_list to /etc/apt/sources.list.d/"
-  action: copy src=mongodb.list dest=/etc/apt/sources.list.d/mongodb_list
+- name: "Copy mongodb.list to /etc/apt/sources.list.d/"
+  action: copy src=mongodb.list dest=/etc/apt/sources.list.d/mongodb.list
   tags:
     - mongodb
 
 # Makes sure it worked
-- name: "Make sure mongodb_list is present"
-  action: file path=/etc/apt/sources.list.d/mongodb_list state=file
+- name: "Make sure mongodb.list is present"
+  action: file path=/etc/apt/sources.list.d/mongodb.list state=file
   tags:
     - mongodb
 

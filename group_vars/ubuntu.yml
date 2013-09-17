@@ -1,5 +1,17 @@
 ---
 
+# Python
+python_pkgs:
+  - python${python_version}
+  - python-dev
+  - python-pip
+
+# Ruby
+ruby_pkgs:
+  - ruby
+  - ruby-dev
+  - rake
+
 # NodeJS
 node_ppa: "ppa:chris-lea/node.js"
 node_dependencies:

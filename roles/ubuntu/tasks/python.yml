@@ -1,12 +1,8 @@
 ---
 
-- name: "Install Python"
-  action: apt pkg=python${python_version} state=latest install_recommends=yes
-  tags:
-    - python
-
-- name: "Install Pip from APT"
-  action: apt pkg=python-pip state=latest install_recommends=yes
+- name: "Install Python packages"
+  action: apt pkg=${item} state=latest install_recommends=yes
+  with_items: ${python_pkgs}
   tags:
     - python
 

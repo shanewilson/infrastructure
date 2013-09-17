@@ -14,5 +14,9 @@
     - nmap
     - mtr-tiny
     - git
+    - autoconf
+    - python-software-properties
+    - wget
+    - curl
   tags:
     - apt

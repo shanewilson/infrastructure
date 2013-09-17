@@ -1,8 +1,12 @@
 ---
 # Tasks
 - include: apt.yml
+
 - include: python.yml
-- include: mongodb.yml
+- include: ruby.yml
 - include: nodejs.yml
 - include: java.yml
+- include: clojure.yml
+
+- include: mongodb.yml
 - include: elasticsearch.yml

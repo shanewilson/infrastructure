@@ -11,6 +11,9 @@ node_modules:
   - coffee-script
   - plato
 
+# Clojure
+lein_dir: '/usr/local/bin/lein'
+
 # Elasticsearch
 elasticsearch_service: 'elasticsearch'
 elasticsearch_plugins:
