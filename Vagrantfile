@@ -24,7 +24,7 @@ Vagrant.configure(VAGRANT_VERSION) do |config|
   # http://docs.vagrantup.com/v2/provisioning/ansible.html
   config.vm.provision :ansible do |ansible|
     ansible.playbook = "playbook.yml"
-    ansible.inventory_path = "stage"
+    ansible.inventory_path = "vm"
     ansible.verbose = true
   end
 
